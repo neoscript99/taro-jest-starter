@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'taro-jest-starter'
-include 'taro-jest-babel'
+include 'taro-jest-babel-demo'
