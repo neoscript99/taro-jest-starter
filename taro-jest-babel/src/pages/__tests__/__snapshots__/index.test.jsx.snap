@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui test no mobx 1`] = `"<div class=\\"index\\"><button class=\\"weui-btn weui-btn_default\\">undefined+</button><button class=\\"weui-btn weui-btn_default\\">undefined-</button><button class=\\"weui-btn weui-btn_default\\">undefinedAdd Async</button><span class=\\"taro-text\\">0</span></div>"`;
