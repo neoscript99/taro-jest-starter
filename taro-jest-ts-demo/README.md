@@ -6,10 +6,10 @@
 1. `yarn build:h5`
 1. `yarn test`
 
-# taro+typescript+jest单元测试环境搭建步骤
+# taro+jest+typescript单元测试环境搭建步骤
 1. 创建taro工程
     - 用`taro init`进行工程初始化
-    - 本demo为redux模板，检出后可进行测试
+    - 选择typescript
     - 如果要用javascript，请参考：[taro-jest-babel-demo](../taro-jest-babel-demo/README.md)
 1. 配置jest
     - `yarn add --dev @types/jest jest ts-jest nerv-server nerv-test-utils`
@@ -71,7 +71,7 @@
 1. `package.json`中添加script: `"test": "TARO_ENV=h5 jest"`
     > 根据taro文档，目前nerv-server仅支持h5环境，所以先运行`yarn build:h5`，再测试`.temp/`下编译好的h5控件
 1. 写一个简单的控件：`src/pages/index/HelloWorld.tsx`
-    > 依赖redux的控件，nerv-server-render有问题，所以简单写一个自己的控件做测试
+    > 依赖mobx、redux的控件，nerv-server-render有问题，所以简单写一个自己的控件做测试
     ```typescript
     import Taro, { Component } from '@tarojs/taro'
     import { View, Text } from '@tarojs/components'
@@ -92,11 +92,8 @@
     import Nerv from 'nervjs'
     import { renderToString } from 'nerv-server'
     import HelloWorld from '../../../.temp/pages/index/HelloWorld'
-    import configStore from '../../store'
     
-    const store = configStore()
-    
-    test('with redux', () => {
+    test('HelloWorld', () => {
       const component = renderToString(
         <HelloWorld />
       )
