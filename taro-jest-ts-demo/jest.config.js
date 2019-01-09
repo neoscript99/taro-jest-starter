@@ -1,20 +1,9 @@
 module.exports = {
   verbose: true,
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  /**
-   * 测试代码本身为typescript，需要ts-jest进行调用
-   * taro代码先通过h5:build编译到.temp中，再通过babel-jest进行测试
-   *
-   * */
   transform: {
-    '\\.(ts|tsx)$': 'ts-jest',
-    '\\.(js|jsx)$': 'babel-jest'
+    '\\.(ts|tsx|js|jsx)$': 'ts-jest'
   },
-  /**
-   * 本身还是es6的依赖库，需要babel-jest做transform
-   * babel-jest的transform依赖babel.config.js
-   *
-   * */
   transformIgnorePatterns: [
     'node_modules/(?!(taro-ui|@tarojs/mobx-h5)/)'
   ],
@@ -30,6 +19,7 @@ module.exports = {
   globals: {
     'ts-jest': {
       tsConfig: {
+        "target": "es6",
         //测试代码中的jsx需要转为代码
         'jsx': 'react',
         'jsxFactory': 'Nerv.createElement'

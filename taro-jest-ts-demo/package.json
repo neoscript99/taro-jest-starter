@@ -39,12 +39,6 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-proposal-class-properties": "^7.2.3",
-    "@babel/plugin-proposal-decorators": "^7.2.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
-    "@babel/plugin-transform-react-jsx": "^7.2.0",
-    "@babel/preset-env": "^7.2.3",
     "@tarojs/plugin-babel": "1.2.4",
     "@tarojs/plugin-csso": "1.2.4",
     "@tarojs/plugin-sass": "1.2.4",
@@ -53,9 +47,7 @@
     "@types/jest": "^23.3.12",
     "@types/react": "^16.4.8",
     "@types/webpack-env": "^1.13.6",
-    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
-    "babel-jest": "^23.6.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-jsx-stylesheet": "^0.6.5",

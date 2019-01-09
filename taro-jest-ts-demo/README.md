@@ -19,8 +19,7 @@
       verbose: true,
       moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
       transform: {
-        '\\.(ts|tsx)$': 'ts-jest',
-        '\\.(js|jsx)$': 'babel-jest'
+        '\\.(ts|tsx|js|jsx)$': 'ts-jest'
       },
       transformIgnorePatterns: [
         'node_modules/(?!(taro-ui|@tarojs/mobx-h5)/)'
@@ -33,9 +32,12 @@
         'weui': '<rootDir>/__mock__/styleMock.js',
         '\\.(css|less|sass|scss)$': '<rootDir>/__mock__/styleMock.js'
       },
+      //https://kulshekhar.github.io/ts-jest/user/config/diagnostics#ignoring-some-error-codes
       globals: {
         'ts-jest': {
           tsConfig: {
+            "target": "es6",
+            //测试代码中的jsx需要转为代码
             'jsx': 'react',
             'jsxFactory': 'Nerv.createElement'
           },
@@ -44,26 +46,6 @@
           }
         }
       }
-    }
-
-    ```
-1. 配置babel-jest(taro代码先通过h5:build编译到.temp中，再通过babel-jest进行测试)
-    - `yarn add --dev babel-jest babel-core@^7.0.0-bridge.0 @babel/core`
-    - `yarn add --dev @babel/preset-env @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators`
-    - `yarn add --dev @babel/plugin-transform-react-jsx @babel/plugin-proposal-object-rest-spread`
-    - 新建文件：`babel.config.js`
-    ```javascript
-    /* eslint-disable import/no-commonjs */
-    module.exports = {
-      presets: [
-        ['@babel/env', { spec: true, useBuiltIns: false }]
-      ],
-      plugins: [
-        ['@babel/plugin-transform-react-jsx', { pragma: 'Nerv.createElement' }],
-        ['@babel/plugin-proposal-decorators', { 'legacy': true }],
-        ['@babel/plugin-proposal-class-properties', { 'loose': true }],
-        ['@babel/plugin-proposal-object-rest-spread', { 'loose': true, 'useBuiltIns': false }]
-      ]
     }
     ```
 1. 新建文件：`__mock__/styleMock.js`
